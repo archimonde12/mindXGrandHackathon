@@ -1,0 +1,28 @@
+:root {
+  /* COLOR */
+  --main-color: #16e5db;
+  --black-color: #000000;
+  --second-color: #089992;
+  --gray-color: #bbbbbb;
+  --white-color: #eeeeee;
+  --green-color: #2baf2b;
+  --pure-white-color: #ffffff;
+  --pure-red-color: red;
+  /* FONT */
+  --small-font: 12px;
+  --normal-font: 16px;
+  --large-font: 24px;
+  --huge-font: 36px;
+  /* MAIN FONT FAMMILY */
+  --main-family-font: "Roboto", sans-serif;
+  --second-family-font: "Poppins", sans-serif;
+  --third-family-font: "Open Sans", sans-serif;
+  --forth-family-font: "Montserrat", sans-serif;
+  /* SPACING */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+}

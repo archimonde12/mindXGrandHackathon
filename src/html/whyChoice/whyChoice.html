@@ -3,7 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link
+      rel="shortcut icon"
+      href="../../favicon/favicon-32x32.png"
+      type="image/x-icon"
+    />
+    <title>SEWIT - Tại sao bạn lại chọn CNTT?</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
@@ -12,32 +17,48 @@
     <video autoplay muted loop id="myVideo">
       <source src="../../videos/video.mp4" type="video/mp4" />
     </video>
-      <!-- Background darklayer -->
+    <!-- Background darklayer -->
     <div id="background"></div>
     <div id="modal">
       <!-- Question -->
       <div class="questionContainer">
-        <h1>Question</h1>
+        <img src="../../images/head-question.png" style="padding:0px 20px" width="80px" alt="" />
+        <h1>Điều gì khiến bạn lựa chọn ngành <br> công nghệ thông tin?</h1>
       </div>
       <!-- Answer -->
       <div class="answersContainer">
-        <div class="answer"  data-value="1">
-          <div class="image"></div>
-          <div class="description"></div>
+        <div class="answer" data-value="1">
+          <div class="image">
+            <img src="../../images/love-message.png" alt="" />
+          </div>
+          <div class="description">
+            <p>Yêu thích công nghệ</p>
+          </div>
         </div>
-        <div class="answer"  data-value="2">
-          <div class="image"></div>
-          <div class="description"></div>
+        <div class="answer" data-value="2">
+          <div class="image">
+            <img src="../../images/send-money.png" alt="" />
+          </div>
+          <div class="description">
+            <p>Lương thưởng hấp dẫn</p>
+          </div>
         </div>
-        <div class="answer"  data-value="3">
-          <div class="image"></div>
-          <div class="description"></div>
+        <div class="answer" data-value="3">
+          <div class="image">
+            <img src="../../images/human-mind.png" alt="" />
+          </div>
+          <div class="description">
+            <p>Tư duy logic, toán tốt</p>
+          </div>
         </div>
-        <div class="answer" onclick="console.log(`Hello`)"  data-value="4">
-          <div class="image"></div>
-          <div class="description"></div>
+        <div class="answer" onclick="console.log(`Hello`)" data-value="4">
+          <div class="image">
+            <img src="../../images/carreer.png" alt="" />
+          </div>
+          <div class="description">
+            <p>Triển vọng phát triển sự nghiệp</p>
+          </div>
         </div>
-       
       </div>
     </div>
     <script src="../../view/view.js"></script>
