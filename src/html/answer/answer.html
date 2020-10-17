@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- 1.Background -->
+    <!-- Background Video -->
+    <video autoplay muted loop id="myVideo">
+      <source src="../../videos/video.mp4" type="video/mp4" />
+    </video>
+    <!-- Background darklayer -->
+    <div id="background"></div>
+    <div id="modal">
+      <!-- Question -->
+      <div class="questionContainer">
+        <h1 id="title">Answer</h1>
+      </div>
+      <!-- Answer -->
+      <div class="answersContainer">Hello</div>
+
+      <div class="nextChoiceContainer">
+        <div id="backButton" class="backButton"><h4>BACK</h4></div>
+        <div id="nextButton" class="nextButton"><h4>NEXT</h4></div>
+      </div>
+    </div>
+    <script src="../../view/view.js"></script>
+    <script src="../../data/data.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
