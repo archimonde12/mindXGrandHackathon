@@ -4,14 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-      rel="shortcut icon"
-      href="./src/favicon/favicon.ico"
-      type="image/x-icon"
-    />
-    <!-- Font Awsome -->
-
+    rel="shortcut icon"
+    href="../../favicon/favicon-32x32.png"
+    type="image/x-icon"
+  />
+  <title>SEWIT - Nhận tư vấn</title>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <title>getAdvice</title>
+  
     <link rel="stylesheet" href="./index.css" />
   </head>
   <body>
@@ -20,6 +19,41 @@
     <div id="myImage"></div>
     <!-- Background darklayer -->
     <div id="darkBackground"></div>
+    <!-- MODAL -->
+    <div class="modalContainer">
+      <div class="modalBackground"></div>
+      <div id="myModal">
+        <div class="card-container">
+          <span class="pro">PRO</span>
+          <img class="round" src="https://randomuser.me/api/portraits/women/79.jpg" alt="user" />
+          <h3>Ricky Park</h3>
+          <h6>New York</h6>
+          <p>User interface designer and <br/> front-end developer</p>
+          <div class="buttons">
+            <button class="primary">
+              Message
+            </button>
+            <button class="primary ghost">
+              Following
+            </button>
+          </div>
+          <div class="skills">
+            <h6>Skills</h6>
+            <ul>
+              <li>UI / UX</li>
+              <li>Front End Development</li>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>React</li>
+              <li>Node</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="modalClose">X</div>
+    </div>
+    <!-- END MODAL -->
     <!-- Header Page -->
     <section>
       <!-- Header -->
@@ -32,14 +66,16 @@
             style="position: relative; left: -33px"
           />
         </div>
-        <div id="menu">
+        <div class="menu">
           <ul>
-            <li>Đăng nhập</li>
-            <li>Đăng ký</li>
+            <li><a id="getAdvice" class="active">Nhận Lời Khuyên</a></li>
+            <li><a id="logOut">Đăng Xuất</a></li>
           </ul>
         </div>
       </header>
       <!-- Main Content -->
+      <div id="welcome-user">Welcome</div>
+      <div class="role_desired">Mong muốn thành Web Developer</div>
       <div id="mainContainer">
         <div class="main">
           <!-- Ready for you -->
@@ -66,8 +102,37 @@
       </div>
     </section>
     <section></section>
+    <!-- ADD FIREBASE -->
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyDCap2oag-QTPtgq6WKPYKww1amSxJ3s1w",
+        authDomain: "mindx48hproject.firebaseapp.com",
+        databaseURL: "https://mindx48hproject.firebaseio.com",
+        projectId: "mindx48hproject",
+        storageBucket: "mindx48hproject.appspot.com",
+        messagingSenderId: "31397163847",
+        appId: "1:31397163847:web:2f2ad9dbf32c43215b9262",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <!-- LOCAL SCRIPTS -->
+    <script src="../../data/data.js"></script>
+    <script src="../../js/model.js"></script>
+    <script src="../../view/view.js"></script>
+    <script src="../../controller/controller.js"></script>
+    <script src="../../js/main.js"></script>
+    <script src="./index.js"></script>
   </body>
-  <script src="../../view/view.js"></script>
-  <script src="../../data/data.js"></script>
-  <script src="./index.js"></script>
 </html>

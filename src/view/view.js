@@ -4,11 +4,14 @@ const screens = {
   Answer: "answer",
   IsSuitWithYou: "isSuitWithYou",
   quiz: "quiz",
+  roadmap:"roadmap",
   authentication: "authentication",
   getAdvice: "getAdvice",
+  main: "main",
 };
 
 view.showScreen = function (screen) {
+  data.setLastScreenName(screen)
   switch (screen) {
     case "whyChoice":
       window.location = "../../html/whyChoice/whyChoice.html";
@@ -28,7 +31,35 @@ view.showScreen = function (screen) {
     case "getAdvice":
       window.location = "../../html/getAdvice/getAdvice.html";
       break;
+    case "roadmap":
+      window.location = "../../html/roadmap/roadmap.html";
+      break;
+    case "main":
+      window.location = "../../html/main/index.html";
+      break;
     default:
       break;
   }
 };
+
+view.renderScreen = function (screen) {
+  switch (screen) {
+    case "getAdvice":
+      //Welcome Text
+      let welcomeText = `welcome, ${model.currentUser.displayName===null?model.currentUser.email:model.currentUser.displayName}`;
+      view.setText("welcome-user", welcomeText);
+      break;
+    default:
+      break;
+  }
+};
+
+view.setText = function (id, text) {
+  let element = document.getElementById(id);
+  if (element === null) {
+    console.log(`#${id} is not exist`);
+  } else {
+    element.innerHTML = text;
+  }
+};
+console.log('view')

@@ -3,47 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link
+      rel="shortcut icon"
+      href="../../favicon/favicon-32x32.png"
+      type="image/x-icon"
+    />
+    <title>SEWIT-Đăng nhập-Đăng ký</title>
     <link rel="stylesheet" href="style.css" />
-        <!-- Font Awsome -->
+    <!-- Font Awsome -->
 
-        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   </head>
   <body>
-     <!-- Background Images -->
-     <div id="myImage"></div>
-     <!-- Background darklayer -->
-     <div id="darkBackground"></div>
-     <!-- Main -->
+    <!-- Background Images -->
+    <div id="myImage"></div>
+    <!-- Background darklayer -->
+    <div id="darkBackground"></div>
+    <!-- Main -->
     <div class="container" id="container">
       <div class="form-container sign-up-container">
-        <form action="#">
-          <h1>Create Account</h1>
+        <form action="#" id="sign-up-form">
+          <h1>Đăng ký mới</h1>
           <div class="social-container">
-            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+         
           </div>
-          <span>hoặc sử dụng email để đăng ký</span>
-          <input type="text" placeholder="Tên" required/>
-          <input type="email" placeholder="Email" required/>
-          <input type="password" placeholder="Mật khẩu" required/>
-          <button>Đăng ký</button>
+          <span>Sử dụng email để đăng ký</span>
+          <input type="text" placeholder="Tên" name="displayName" required />
+          <input type="email" placeholder="Email"  name="email" required />
+          <input type="password" placeholder="Mật khẩu"  name="password" required />
+          <button type='submit' id="register_button">Đăng ký</button>
         </form>
       </div>
       <div class="form-container sign-in-container">
-        <form action="#">
+        <form action="#" id="sign-in-form">
           <h1>Đăng nhập</h1>
           <div class="social-container">
-            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+         
           </div>
-          <span>hoặc dùng tài khoản đã có</span>
-          <input type="email" placeholder="Email" required/>
-          <input type="password" placeholder="Mật khẩu" required/>
+          <span>Dùng tài khoản đã có</span>
+          <input type="email" placeholder="Email" name="email" required />
+          <input type="password" placeholder="Mật khẩu" name="password" required />
           <a href="#">Quên mật khẩu?</a>
-          <button>Đăng nhập</button>
+          <button  type='submit' id="login_button">Đăng nhập</button>
+          <div style="color:red" id="sign-in-err"></div>
         </form>
       </div>
       <div class="overlay-container">
@@ -51,21 +53,54 @@
           <div class="overlay-panel overlay-left">
             <h1>Chào mừng quay lại</h1>
             <p>
-              Để giữ liên lạc với chúng tôi hãy đăng nhập với tài khoản đã có của bạn
+              Để giữ liên lạc với chúng tôi hãy đăng nhập với tài khoản đã có
+              của bạn
             </p>
             <button class="ghost" id="signIn">Đăng nhập</button>
           </div>
           <div class="overlay-panel overlay-right">
             <h1>Chào bạn!</h1>
-            <p>Nhập thông tin cá nhân của bạn và bắt đầu chuyến hành trình với chúng tôi</p>
+            <p>
+              Nhập thông tin cá nhân của bạn và bắt đầu chuyến hành trình với
+              chúng tôi
+            </p>
             <button class="ghost" id="signUp">Đăng ký</button>
+            <div style="color:red" id="sign-up-err"></div>
           </div>
         </div>
       </div>
     </div>
-
-    <script src="../../view/view.js"></script>
+    <!-- ADD FIREBASE -->
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyDCap2oag-QTPtgq6WKPYKww1amSxJ3s1w",
+        authDomain: "mindx48hproject.firebaseapp.com",
+        databaseURL: "https://mindx48hproject.firebaseio.com",
+        projectId: "mindx48hproject",
+        storageBucket: "mindx48hproject.appspot.com",
+        messagingSenderId: "31397163847",
+        appId: "1:31397163847:web:2f2ad9dbf32c43215b9262",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <!-- LOCAL SCRIPTS -->
     <script src="../../data/data.js"></script>
+    <script src="../../js/model.js"></script>
+    <script src="../../view/view.js"></script>
+    <script src="../../controller/controller.js"></script>
+    <script src="../../js/main.js"></script>
     <script src="./index.js"></script>
   </body>
 </html>

@@ -1,0 +1,384 @@
+/* IMPORT GOOGLE FONT */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
+@import url("../../theme/root.css");
+
+:root {
+  /* COLOR */
+  --main-color: #16e5db;
+  --black-color: #000000;
+  --gray-color: #bbbbbb;
+  --white-color: #eeeeee;
+  /* FONT */
+  --normal-font: 16px;
+  --large-font: 24px;
+  --huge-font: 36px;
+  /* MAIN FONT FAMMILY */
+  --main-family-font: "Roboto", sans-serif;
+  --second-family-font: "Poppins", sans-serif;
+  --third-family-font: "Open Sans", sans-serif;
+  /* SPACING */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+  /* BOX SHADOW*/
+  --shadow-box-black: 5px 5px 15px var(--black-color);
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  z-index: -1;
+}
+
+#background {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  background-image: radial-gradient(
+    circle,
+    #16e5db,
+    #15a3c6,
+    #4b6288,
+    #392e3d,
+    #000000
+  );
+  opacity: var(--opacity-2);
+  z-index: -1;
+}
+
+#modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 80%;
+  min-height: 80%;
+  background-color: white;
+  border-radius: var(--space-3);
+  box-shadow: 10px 10px 20px var(--black-color);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.questionContainer {
+  flex-grow: 1;
+  background-color: var(--second-color);
+  color: var(--pure-white-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--third-family-font);
+  text-transform: uppercase;
+  padding: 0px var(--space-5);
+}
+
+#roadmap {
+  flex-grow: 2;
+}
+
+.answersContainer {
+  flex-grow: 8;
+  background-color: var(--pure-white-color);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.answer {
+  padding: 20px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 2px solid var(--second-color);
+  background-color: var(--pure-white-color);
+  color: var(--second-color);
+  font-size: 24px;
+  font-weight: bold;
+  font-family: var(--third-family-font);
+  border-radius: var(--space-3);
+}
+
+.answer:hover {
+  background-color: var(--second-color);
+  color: var(--pure-white-color);
+  box-shadow: var(--shadow-box-black);
+}
+
+.question {
+  text-align: center;
+  margin-top: 50px;
+  padding: 0px 50px;
+  font-size: var(--huge-font);
+  font-family: var(--third-family-font);
+  font-weight: bold;
+}
+
+.image {
+  background-color: white;
+  width: 150px;
+  height: 150px;
+}
+
+.description {
+  background-color: black;
+  width: 0px;
+  height: 150px;
+  opacity: 0;
+  transform: translateX(0px);
+  transition: width 1s, opacity 1s;
+}
+
+/* CARD CODE */
+
+body {
+  background-color: #f2f2f2;
+  font-family: "RobotoDraft", "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+h5 {
+  margin: 0px;
+  font-size: 1.1em;
+  font-weight: 700;
+  color: var(--second-color);
+}
+
+p {
+  font-size: 12px;
+}
+
+.center {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* End Non-Essential  */
+
+.property-card {
+  height: 15em;
+  width: 10em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  border-radius: 16px;
+  overflow: hidden;
+  -webkit-box-shadow: 15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
+  box-shadow: 5px 5px 15px var(--black-color);
+  border: 1px solid var(--second-color);
+}
+/* ^-- The margin bottom is necessary for the drop shadow otherwise it gets clipped in certain cases. */
+
+/* Top Half of card, image. */
+
+.property-image {
+  height: 7em;
+  width: 10em;
+  padding: 1em 2em;
+  position: Absolute;
+  top: 0px;
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  background-image: url("https://cdn.photographylife.com/wp-content/uploads/2017/01/What-is-landscape-photography.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: zoom-in;
+}
+
+#data-sientist .property-image {
+  background-image: url("../../images//TopSkillForDataSientists.png");
+  background-position: center;
+}
+#mobile-app-developer .property-image {
+  background-image: url("../../images/TopSkillForMoblieAppDevelopers.png");
+  background-position: center;
+}
+#software-enginner .property-image {
+  background-image: url("../../images//TopSkillForSoftwareEnginner.png");
+  background-position: center;
+}
+#ui-designer .property-image {
+  background-image: url("../../images//TopSkillForUIDesigner.png");
+  background-position: center;
+}
+
+/* Bottom Card Section */
+
+.property-description {
+  background-color: #fafafc;
+  border-top: 2px solid var(--second-color);
+  height: 10em;
+  width: 10em;
+  position: absolute;
+  bottom: 0em;
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  padding: 0.5em 1em;
+  text-align: center;
+}
+
+/* Social Icons */
+
+.property-social-icons {
+  width: 1em;
+  height: 1em;
+  background-color: black;
+  position: absolute;
+  bottom: 1em;
+  left: 1em;
+  -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* Property Cards Hover States */
+
+.property-card:hover .property-description {
+  height: 0em;
+  padding: 0px 1em;
+}
+.property-card:hover .property-image {
+  height: 18em;
+}
+
+.property-card:hover .property-social-icons {
+  background-color: white;
+}
+
+.property-card:hover .property-social-icons:hover {
+  background-color: blue;
+  cursor: pointer;
+}
+
+/* Optional */
+
+.property-image-title {
+  text-align: center;
+  position: Relative;
+  top: 30%;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
+  color: black;
+  font-size: 1.2em;
+}
+
+.property-card:hover .property-image-title {
+  opacity: 1;
+}
+/* Navigation Button */
+
+.navigationButton {
+  border: 2px solid var(--second-color);
+  background-color: var(--pure-white-color);
+  color: var(--second-color);
+  align-self: center;
+  margin-bottom: var(--space-3);
+  padding: var(--space-2);
+  border-radius: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.navigationButton:hover{
+  color: var(--pure-white-color);
+  background-color: var(--second-color);
+}
+
+
+/* Modal */
+
+.modalContainer{
+  position: fixed;
+  width: 100vw;
+  top:0px;
+  left:0px;
+  height:100vh;
+  z-index:10;
+  padding:0;
+  margin:0;
+  display: none;
+  animation-name: animatetop;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes animatetop {
+  0% {top: -300px; opacity: 0}
+  50%{top:30px;opacity: 1}
+  80%{top:-60px;opacity: 1}
+  100% {top: 0; opacity: 1}
+}
+
+.modalBackground{
+  position: fixed;
+  width: 100%;
+  height:100%;
+  background: var(--black-color);
+  opacity: var(--opacity-2);
+}
+
+.modalClose{
+  position: fixed;
+  top:0;
+  right:0;
+  width: 40px;
+  height:40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color:var(--second-color);
+  color:var(--white-color);
+  font-size: 32px;
+  font-weight: bold;
+  font-family: var(--forth-family-font);
+  cursor: pointer;
+}
+
+.modalClose:hover{
+  background-color:var(--main-color);
+  color:var(--pure-white-color);
+}
+
+#myModal{
+  width: 90vw;
+  height:90vh;
+  background-size: cover;
+  z-index: 11;
+  align-self: center;
+  margin:auto;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+

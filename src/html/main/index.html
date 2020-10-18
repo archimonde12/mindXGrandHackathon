@@ -21,6 +21,13 @@
     </video>
     <!-- Background darklayer -->
     <div id="darkBackground"></div>
+    <!-- MODAL -->
+    <div class="modalContainer">
+      <div class="modalBackground"></div>
+      <div id="myModal"></div>
+      <div class="modalClose">X</div>
+    </div>
+    <!-- END MODAL -->
     <!-- Header Page -->
     <section>
       <!-- Header -->
@@ -37,7 +44,6 @@
             <li>
               <a href="../authentication/authentication.html">Đăng nhập</a>
             </li>
-            <li><a href="../authentication/authentication.html">Đăng kí</a></li>
           </ul>
         </div>
       </header>
@@ -69,8 +75,37 @@
         <i class="fas fa-chevron-down fa-3x"></i>
       </div> -->
     </section>
+    <!-- ADD FIREBASE -->
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyDCap2oag-QTPtgq6WKPYKww1amSxJ3s1w",
+        authDomain: "mindx48hproject.firebaseapp.com",
+        databaseURL: "https://mindx48hproject.firebaseio.com",
+        projectId: "mindx48hproject",
+        storageBucket: "mindx48hproject.appspot.com",
+        messagingSenderId: "31397163847",
+        appId: "1:31397163847:web:2f2ad9dbf32c43215b9262",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <!-- LOCAL SCRIPTS -->
+    <script src="../../data/data.js"></script>
+    <script src="../../js/model.js"></script>
+    <script src="../../view/view.js"></script>
+    <script src="../../controller/controller.js"></script>
+    <script src="../../js/main.js"></script>
+    <script src="./index.js"></script>
   </body>
-  <script src="../../view/view.js"></script>
-  <script src="../../data/data.js"></script>
-  <script src="./index.js"></script>
 </html>

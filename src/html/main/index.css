@@ -56,7 +56,7 @@ body {
   min-width: 100%;
   min-height: 100%;
   background-color: var(--black-color);
-  opacity: 0.6;
+  opacity: 0.2;
   z-index: -1;
 }
 

@@ -46,12 +46,13 @@ const CreateAnswer = function ({ correct_answer, incorrect_answers }) {
   `;
 };
 
+data.setQuizzScore(0)
 let step = 1;
+let score=0
 let question = document.getElementById("question");
 let answers = document.getElementById("answers");
 
 let PrintAnswers = function () {
-  console.log(step);
   if (step < questions.length + 1) {
     question.innerHTML = `Câu hỏi ${questions[step - 1].id}: ${
       questions[step - 1].question
@@ -60,11 +61,20 @@ let PrintAnswers = function () {
     let answerDOM = document.getElementsByClassName("answer");
     for (let answer of answerDOM) {
       answer.onclick = function () {
-        console.log(this.getAttribute('data-value'));
+        score+=Number(this.getAttribute('data-value'));
+        data.setQuizzScore(score)
         step++;
         PrintAnswers();
       };
     }
+  }
+  else{
+    console.log('your total score:',score)
+    question.innerHTML=`Số điểm của bạn ${score}<br>${score>2?'Bạn phù hợp với lập trình':'Bạn cần bổ sung thêm kiến thức!Bạn chưa thật sự sẵn sàng đâu!'}`
+    answers.innerHTML=` <div class="answer"  data-value="${1}">Xem lộ trình phù hợp với tôi</div>`
+    let answerDOMs = document.getElementsByClassName("answer");
+    answerDOMs[0].onclick=()=>view.showScreen(screens.roadmap)
+    console.log(answerDOMs[0].onclick)
   }
 };
 

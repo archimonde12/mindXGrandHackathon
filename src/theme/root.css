@@ -25,4 +25,7 @@
   --space-4: 32px;
   --space-5: 40px;
   --space-6: 48px;
+  /* Opacity */
+  --opacity-1:0.2;
+  --opacity-2:0.6;
 }

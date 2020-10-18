@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+    rel="shortcut icon"
+    href="../../favicon/favicon-32x32.png"
+    type="image/x-icon"
+  />
+  <title>SEWIT - Lộ trình</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- 1.Background -->
+    <!-- Background Video -->
+    <video autoplay muted loop id="myVideo">
+      <source src="../../videos/video.mp4" type="video/mp4" />
+    </video>
+    <!-- Background darklayer -->
+    <div id="background"></div>
+    <!-- MODAL -->
+    <div class="modalContainer">
+      <div class="modalBackground"></div>
+      <div id="myModal"></div>
+      <div class="modalClose">X</div>
+    </div>
+    <!-- END MODAL -->
+    <div id="modal">
+      <!-- Question -->
+      <div class="questionContainer">
+        <img
+          src="../../images/strategy.png"
+          style="padding: 0px 20px"
+          width="80px"
+          alt=""
+        />
+        <h1>Các lộ trình cơ bản trong ngành CNTT</h1>
+      </div>
+      <!-- Answer -->
+      <div id="roadmap" class="center">
+        <!-- data-sientist -->
+        <div id="data-sientist" class="property-card">
+          <a href="#">
+            <div class="property-image">
+              <div class="property-image-title"></div></div
+          ></a>
+          <div class="property-description">
+            <h5>Kỹ sư dữ liệu</h5>
+            <p>
+              Phân tích, sắp xếp và thay dữ liệu “kể chuyện”, bất kể nó có cấu
+              trúc hay không?
+            </p>
+            <p>Lương khi có kinh nghiệm: <strong>39 triệu</strong></p>
+          </div>
+        </div>
+        <!-- mobile-app-developer -->
+        <div id="mobile-app-developer" class="property-card">
+          <a href="#">
+            <div class="property-image">
+              <div class="property-image-title"></div></div
+          ></a>
+          <div class="property-description">
+            <h5>Lập trình điện thoại di động</h5>
+            <p>lập trình để phát triển ứng dụng di động.</p>
+            <p>Lương khi có kinh nghiệm: <strong>27 triệu</strong></p>
+          </div>
+        </div>
+        <!-- software-enginner -->
+        <div id="software-enginner" class="property-card">
+          <a href="#">
+            <div class="property-image">
+              <div class="property-image-title"></div></div
+          ></a>
+          <div class="property-description">
+            <h5>Lập trình phần mềm</h5>
+            <p>Là những người tạo ra phần mềm và hệ thống trên máy tính.</p>
+            <p>Lương khi có kinh nghiệm: <strong>29 triệu</strong></p>
+          </div>
+        </div>
+        <!-- ui-designer -->
+        <div id="ui-designer" class="property-card">
+          <a href="#">
+            <div class="property-image">
+              <div class="property-image-title"></div></div
+          ></a>
+          <div class="property-description">
+            <h5>Thiết kế UI/UX</h5>
+            <p>
+              Thiết kế giao diện người dùng cho máy móc và phần mềm, như máy
+              tính, thiết bị di động
+            </p>
+            <p>Lương khi có kinh nghiệm: <strong>22.5 triệu</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="navigationButton">Tôi muốn được tư vấn kỹ hơn ?</div>
+    </div>
+
+    <script src="../../view/view.js"></script>
+    <script src="../../data/data.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
