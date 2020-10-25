@@ -1,3 +1,5 @@
+console.log("main.js is running");
+console.log("===================")
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     // User is signed in.
@@ -11,6 +13,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     model.setCurrentUser(user);
     let nowScreen = data.getLastScreenName();
     console.log(nowScreen);
+
     if (nowScreen === screens.getAdvice) {
       view.renderScreen(screens.getAdvice);
     } else {
@@ -22,4 +25,3 @@ firebase.auth().onAuthStateChanged(function (user) {
   }
 });
 
-console.log("main");

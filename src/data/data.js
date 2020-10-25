@@ -1,3 +1,6 @@
+console.log("data.js is running");
+console.log("===================");
+
 const WHY_ANSWER = "whyYouChoiceIT";
 const QUIZZ_SCORE = "QuizzScore";
 const WANNA_SIGNUP = "wannaSignup";
@@ -54,4 +57,34 @@ data.getLastScreenName = () => {
   return getValue;
 };
 
-console.log("data");
+class Rectangle {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+
+  get area() {
+    return this.calcArea();
+  }
+
+  calcArea() {
+    return this.height * this.width;
+  }
+}
+
+class Cat {
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    console.log(this.name + " makes a noise.");
+  }
+}
+
+class Lion extends Cat {
+  speak() {
+    super.speak();
+    console.log(this.name + " roars.");
+  }
+}

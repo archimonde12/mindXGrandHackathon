@@ -11,8 +11,8 @@
   --second-color: #089992;
   --gray-color: #bbbbbb;
   --white-color: #eeeeee;
-  --green--color:#2baf2b;
-  --pure-white-color:#ffffff;
+  --green--color: #2baf2b;
+  --pure-white-color: #ffffff;
   /* FONT */
   --normal-font: 16px;
   --large-font: 24px;
@@ -291,10 +291,10 @@ input {
   width: 40px;
 }
 
-.social-container a:hover{
-	background-color: var(--second-color);
-	border-color: var(--second-color);
-	color:var(--pure-white-color)
+.social-container a:hover {
+  background-color: var(--second-color);
+  border-color: var(--second-color);
+  color: var(--pure-white-color);
 }
 
 footer {
@@ -320,4 +320,10 @@ footer i {
 footer a {
   color: #3c97bf;
   text-decoration: none;
+}
+
+.error {
+  color: red;
+  font-size: 9px;
+  margin-top: 16px;
 }

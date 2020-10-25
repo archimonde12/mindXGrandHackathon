@@ -1,3 +1,5 @@
+console.log("view.js is running");
+console.log("===================")
 const view = {};
 const screens = {
   WhyChoiceScreen: "whyChoice",
@@ -42,12 +44,13 @@ view.showScreen = function (screen) {
   }
 };
 
-view.renderScreen = function (screen) {
+view.renderScreen = async function (screen) {
   switch (screen) {
     case "getAdvice":
       //Welcome Text
       let welcomeText = `welcome, ${model.currentUser.displayName===null?model.currentUser.email:model.currentUser.displayName}`;
       view.setText("welcome-user", welcomeText);
+      await controller.setOnlineStatus(model.currentUser.email);
       break;
     default:
       break;
@@ -62,4 +65,3 @@ view.setText = function (id, text) {
     element.innerHTML = text;
   }
 };
-console.log('view')

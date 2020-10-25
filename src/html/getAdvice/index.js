@@ -1,52 +1,44 @@
+//WELCOME
+console.log("getAdvice.js is running");
+console.log("========================");
+
 //====MODAL CONFIG=====
 //Set up modal
-let myModal=document.getElementById('myModal')
-let closeModalButton=document.getElementsByClassName('modalClose')[0]
-closeModalButton.onclick=function(){
-  this.parentElement.style.display='none'
-}
-const ProfileCardHTML=`<div class="card-container">
-<span class="pro">PRO</span>
-<img class="round" src="https://randomuser.me/api/portraits/women/79.jpg" alt="user" />
-<h3>Ricky Park</h3>
-<h6>New York</h6>
-<p>User interface designer and <br/> front-end developer</p>
-<div class="buttons">
-  <button class="primary">
-    Message
-  </button>
-  <button class="primary ghost">
-    Following
-  </button>
-</div>
-<div class="skills">
-  <h6>Skills</h6>
-  <ul>
-    <li>UI / UX</li>
-    <li>Front End Development</li>
-    <li>HTML</li>
-    <li>CSS</li>
-    <li>JavaScript</li>
-    <li>React</li>
-    <li>Node</li>
-  </ul>
-</div>
-</div>`
+let myModal = document.getElementById("myModal");
+let closeModalButton = document.getElementsByClassName("modalClose")[0];
+closeModalButton.onclick = function () {
+  this.parentElement.style.display = "none";
+};
+const ProfileCardHTML = ({ name, role, imageURL, bio, years }) => {
+  let bioText = ``;
+  bio.forEach((value) => (bioText += `<li>${value}</li>`));
+  return `<div class="card-container">
+  <img class="round" src=${imageURL} />
+  <h3>${name}</h3>
+  <h6> ${years}+ years experience</h6>
+  <p>${role}</p>
+  <div class="skills">
+    <h6>Bio</h6>
+    <ul>
+      ${bioText}
+    </ul>
+  </div>
+</div>`;
+};
 //Function open Modal with nothing
-const openModalWithNothing=function(){
-  myModal.innerHTML=ProfileCardHTML
-  myModal.parentElement.style.display='flex'
-}
+const openModalWithNothing = function (data) {
+  myModal.innerHTML = ProfileCardHTML(data);
+  myModal.parentElement.style.display = "flex";
+};
 //Function open Modal by imageURL
-const openModalWithImage=function(imageURL){
-  myModal.innerHTML=''
-  myModal.parentElement.style.display='flex'
-  let image=document.createElement('img')
-  image.src=imageURL
-  myModal.appendChild(image)
-}
+const openModalWithImage = function (imageURL) {
+  myModal.innerHTML = "";
+  myModal.parentElement.style.display = "flex";
+  let image = document.createElement("img");
+  image.src = imageURL;
+  myModal.appendChild(image);
+};
 //====END MODAL CONFIG=====
-
 
 const famousPeople = [
   {
@@ -90,15 +82,27 @@ const famousPeople = [
     isOnline: false,
   },
 ];
+//==== RENDER ALL  =====
+const sections = {
+  allPeopleReadyForYou: "allPeopleReadyForYou",
+  allOnlinePeople: "allOnlinePeople",
+  allPeopleMaySuitWithYou: "allPeopleMaySuitWithYou",
+  allOfflinePeople: "allOfflinePeople",
+};
+
 const yourDesireRole = "Web Developer";
 
-const RenderProfileCard = function ({ name, role, isOnline }) {
+const RenderProfileCard = function ({ name, role, isOnline, imageURL }) {
   return ` 
           <div class="our-team ${isOnline ? "online" : null}">
               <div class="picture">
               <img
                   class="img-fluid"
-                  src="https://picsum.photos/130/130?image=1027"
+                  src=${
+                    imageURL === undefined
+                      ? "https://picsum.photos/130/130?image=1027"
+                      : imageURL
+                  }
               />
               </div>
               <div class="team-content">
@@ -110,7 +114,7 @@ const RenderProfileCard = function ({ name, role, isOnline }) {
                       <i class="fas fa-comment-dots"></i>
                       Nhắn tin
                   </li>
-                  <li class="openProfileCard">
+                  <li class="openProfileCard" data-email="${name}">
                       <i class="fas fa-user"></i>
                       Thông tin 
                   </li>
@@ -118,64 +122,110 @@ const RenderProfileCard = function ({ name, role, isOnline }) {
           </div>`;
 };
 
+const showProfileCardInSection = function (sectionID, data) {
+  let filterData;
+  switch (sectionID) {
+    case "allPeopleReadyForYou":
+      filterData = data.filter(
+        (value) => value.role === yourDesireRole && value.isOnline === true
+      );
+      break;
+    case "allOnlinePeople":
+      filterData = data.filter(
+        (value) => value.isOnline === true && value.role !== yourDesireRole
+      );
+      break;
+    case "allPeopleMaySuitWithYou":
+      filterData = data.filter(
+        (value) => value.role === yourDesireRole && value.isOnline === false
+      );
+      break;
+    case "allOfflinePeople":
+      filterData = data.filter(
+        (value) => value.role !== yourDesireRole && value.isOnline === false
+      );
+      break;
+    default:
+      break;
+  }
+  let sectionDOM = document.getElementById(sectionID);
+  sectionDOM.innerHTML = ``;
+  filterData.map((value) => {
+    sectionDOM.innerHTML += RenderProfileCard(value);
+  });
+};
 
+const ShowOnlineUserData = async function () {
+  await controller.getStatusData("online");
+  console.log(model.onlineData.data);
+};
 
-// Filter Role Your Like and Online
-let PeopleReadyForYou = famousPeople.filter(
-  (value) => value.role === yourDesireRole && value.isOnline === true
-);
-let allPeopleReadyForYou = document.getElementById("allPeopleReadyForYou");
-PeopleReadyForYou.map((value) => {
-  allPeopleReadyForYou.innerHTML += RenderProfileCard(value);
-});
+// Selection Role Your Like and Online
+showProfileCardInSection(sections.allPeopleReadyForYou, famousPeople);
 
-// Filter Online
-let OnlinePeople = famousPeople.filter(
-  (value) => value.isOnline === true && value.role !== yourDesireRole
-);
-let allOnlinePeople = document.getElementById("allOnlinePeople");
-OnlinePeople.map((value) => {
-  allOnlinePeople.innerHTML += RenderProfileCard(value);
-});
+// Selection Online
+showProfileCardInSection(sections.allOnlinePeople, famousPeople);
 
-// Filter Role Your Like but Ofline
-let PeopleMaySuitWithYou = famousPeople.filter(
-  (value) => value.role === yourDesireRole && value.isOnline === false
-);
-let allPeopleMaySuitWithYou = document.getElementById(
-  "allPeopleMaySuitWithYou"
-);
-PeopleMaySuitWithYou.map((value) => {
-  allPeopleMaySuitWithYou.innerHTML += RenderProfileCard(value);
-});
+// Selection Role Your Like but Ofline
+showProfileCardInSection(sections.allPeopleMaySuitWithYou, famousPeople);
 
 //Other People
-let OfflinePeople = famousPeople.filter(
-  (value) => value.role !== yourDesireRole && value.isOnline === false
-);
+showProfileCardInSection(sections.allOfflinePeople, famousPeople);
 
-let allOfflinePeople = document.getElementById(
-    "allOfflinePeople"
-  );
-  OfflinePeople.map((value) => {
-    allOfflinePeople.innerHTML += RenderProfileCard(value);
-  });
-  
 //LOGOUT HANDLE
+let logOut = document.getElementById("logOut");
+logOut.onclick = () => {
+  controller.logOut();
+};
+let FakeData = [];
+async function ShowAllUserData() {
+  //Get user data
+  try {
+    await controller.getDataByOptions(collections.USER_COLLECTION, "all");
 
-let logOut=document.getElementById('logOut')
-logOut.onclick=()=>{controller.logOut()}
-
-//RENDER
-
-
-let openProfileCards =document.getElementsByClassName('openProfileCard')
-let openChatModals =document.getElementsByClassName('openChatModal')
-
-for(let openProfileCard of openProfileCards){
-  openProfileCard.onclick=()=>openModalWithNothing()
+    //Fake online offline
+    model.dataGetByOptions.map((value) => {
+      let randomFactor = Math.random() * 10;
+      FakeData.push({ ...value, isOnline: randomFactor > 5 ? true : false });
+    });
+    ShowAllUserStatus();
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-for(let openChatModal of openChatModals){
-  openChatModal.onclick=()=>openModalWithImage(`../../images/chatModal.png`)
+ShowAllUserData();
+//Fake online offline
+setInterval(() => {
+  let randomNumber = Math.round(Math.random() * (FakeData.length - 1));
+  console.log(FakeData);
+  console.log(randomNumber);
+  FakeData[randomNumber].isOnline = !FakeData[randomNumber].isOnline;
+  ShowAllUserStatus();
+}, 10000);
+function ShowAllUserStatus() {
+  showProfileCardInSection(sections.allOnlinePeople, FakeData);
+  showProfileCardInSection(sections.allOfflinePeople, FakeData);
+  showProfileCardInSection(sections.allPeopleMaySuitWithYou, FakeData);
+  showProfileCardInSection(sections.allPeopleReadyForYou, FakeData);
+
+  //OPEN MODAL WHEN CLICK BUTTON
+  let openProfileCards = document.getElementsByClassName("openProfileCard");
+  let openChatModals = document.getElementsByClassName("openChatModal");
+
+  for (let openProfileCard of openProfileCards) {
+    openProfileCard.onclick = () => {
+      console.log(openProfileCard.getAttribute("data-email"));
+      let newFakeData = FakeData.filter(
+        (item) => item.name === openProfileCard.getAttribute("data-email")
+      );
+      console.log(newFakeData);
+      openModalWithNothing(newFakeData[0]);
+    };
+  }
+
+  for (let openChatModal of openChatModals) {
+    openChatModal.onclick = () =>
+      openModalWithImage(`../../images/chatModal.png`);
+  }
 }

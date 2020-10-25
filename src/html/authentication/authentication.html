@@ -24,28 +24,34 @@
       <div class="form-container sign-up-container">
         <form action="#" id="sign-up-form">
           <h1>Đăng ký mới</h1>
-          <div class="social-container">
-         
-          </div>
+          <div class="social-container"></div>
           <span>Sử dụng email để đăng ký</span>
           <input type="text" placeholder="Tên" name="displayName" required />
-          <input type="email" placeholder="Email"  name="email" required />
-          <input type="password" placeholder="Mật khẩu"  name="password" required />
-          <button type='submit' id="register_button">Đăng ký</button>
+          <input type="email" placeholder="Email" name="email" required />
+          <input
+            type="password"
+            placeholder="Mật khẩu"
+            name="password"
+            required
+          />
+          <button type="submit" id="register_button">Đăng ký</button>
         </form>
       </div>
       <div class="form-container sign-in-container">
         <form action="#" id="sign-in-form">
           <h1>Đăng nhập</h1>
-          <div class="social-container">
-         
-          </div>
+          <div class="social-container"></div>
           <span>Dùng tài khoản đã có</span>
           <input type="email" placeholder="Email" name="email" required />
-          <input type="password" placeholder="Mật khẩu" name="password" required />
+          <input
+            type="password"
+            placeholder="Mật khẩu"
+            name="password"
+            required
+          />
           <a href="#">Quên mật khẩu?</a>
-          <button  type='submit' id="login_button">Đăng nhập</button>
-          <div style="color:red" id="sign-in-err"></div>
+          <button type="submit" id="login_button">Đăng nhập</button>
+          <div style="color: red" id="sign-in-err"></div>
         </form>
       </div>
       <div class="overlay-container">
@@ -65,7 +71,7 @@
               chúng tôi
             </p>
             <button class="ghost" id="signUp">Đăng ký</button>
-            <div style="color:red" id="sign-up-err"></div>
+            <div class="error" id="sign-up-err"></div>
           </div>
         </div>
       </div>
